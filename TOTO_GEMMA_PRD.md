@@ -1,9 +1,10 @@
 # Toto Gemma: Product Requirements Document (PRD)
 
-> **Version**: 1.0
+> **Version**: 1.1
 > **Date**: January 2, 2026
 > **Sprint Duration**: 24-48 hours
 > **Team Size**: 2-3 developers
+> **Status**: READY FOR DEVELOPMENT
 
 ---
 
@@ -13,6 +14,44 @@
 
 ### North Star Metric
 > *If a CHW can classify risk and share respectful, actionable tips with a caregiver in under 5 minutes, we've built the right thing.*
+
+---
+
+## Implementation Decisions (Finalized)
+
+> These decisions were confirmed through stakeholder review and are **final** for this sprint.
+
+### Core Decisions
+
+| Decision | Choice | Rationale |
+|----------|--------|-----------|
+| **Tech Stack** | React Native + Expo | Fast development, cross-platform, meets <25MB constraint |
+| **Scope** | Full 45 questions | All 3 age groups × 3 categories × 5 questions |
+| **Default Language** | English | User can toggle to Swahili at any time |
+| **Design System** | Material Design 3 | React Native Paper - familiar to Android users |
+| **Backend** | Local-only (SQLite) | No server for demo - offline-first architecture |
+| **Risk Algorithm** | Category-based rollup | Worst risk per category → overall = worst category |
+
+### Feature Decisions
+
+| Feature | Decision | Notes |
+|---------|----------|-------|
+| **Villages** | Sample list (5-10) | Demo data: Kaloleni, Rabai, Mariakani, Kinango, Chonyi, Ganze, Malindi, Kilifi, Mombasa, Likoni |
+| **Age Input** | Both options | DOB date picker OR age-in-months number input |
+| **Questions** | All required | Must answer all 15 questions to get risk classification |
+| **Red Alerts** | Warning banner | Show alert but allow continuing - full guidance at end |
+| **Draft Saving** | Auto-save always | Every answer saved automatically - can resume later |
+| **Demo Data** | Pre-populated | 3-5 sample children with past screenings included |
+| **Dashboard Access** | Always visible | Dashboard button shown to all users (no PIN/role restriction) |
+
+### Stretch Features Priority
+
+| Priority | Feature | Status |
+|----------|---------|--------|
+| S1 | Offline-first + sync indicator | ✅ Included |
+| S2 | Swahili language support | ✅ Included |
+| S3 | SMS/WhatsApp sharing | ✅ Included |
+| S4 | Supervisor dashboard | ✅ Included |
 
 ---
 
@@ -627,11 +666,20 @@ const stats = await db.getFirstAsync(`
 │   │                             │   │
 │   └─────────────────────────────┘   │
 │                                     │
-│   Date of Birth *                   │
+│   How to enter age:                 │
+│   [📅 Date of Birth] [🔢 Age]       │
+│                                     │
+│   [If DOB selected:]                │
 │   ┌─────────────────────────────┐   │
 │   │ 📅 Select date...           │   │
 │   └─────────────────────────────┘   │
 │   Calculated: 8 months old          │
+│                                     │
+│   [If Age selected:]                │
+│   ┌───────────────┐                 │
+│   │ 8             │ months old      │
+│   └───────────────┘                 │
+│                                     │
 │   Age group: 6-24 months            │
 │                                     │
 │   Sex *                             │
@@ -641,6 +689,9 @@ const stats = await db.getFirstAsync(`
 │   ┌─────────────────────────────┐   │
 │   │ Select village...         ▼ │   │
 │   └─────────────────────────────┘   │
+│   (Kaloleni, Rabai, Mariakani,      │
+│    Kinango, Chonyi, Ganze,          │
+│    Malindi, Kilifi, Mombasa, Likoni)│
 │                                     │
 │   Caregiver Phone (optional)        │
 │   ┌─────────────────────────────┐   │
@@ -653,6 +704,12 @@ const stats = await db.getFirstAsync(`
 │                                     │
 └─────────────────────────────────────┘
 ```
+
+**Age Input Behavior:**
+- Toggle between Date of Birth picker and Age-in-months input
+- If DOB selected: Calendar picker → auto-calculate age in months
+- If Age selected: Number input (0-60 months) → generate approximate DOB
+- Both methods calculate the same age group for question filtering
 
 ### Screen 4: Screening Questions
 **Route**: `/screening/:childId`
@@ -698,12 +755,26 @@ const stats = await db.getFirstAsync(`
 ```
 
 **Behavior:**
-- Tap answer → Highlight selection
+- Tap answer → Highlight selection, auto-save to SQLite
 - "Next" → Advance to next question
 - "Back" → Return to previous question
 - Category tabs → Jump to category (maintain answers)
-- Red answer → Show immediate warning banner
-- Exit → Confirm dialog, save draft option
+- All 15 questions required before seeing results
+- Exit → Auto-saved, can resume from last answered question
+
+**Red Answer Alert (Warning Banner):**
+```
+┌─────────────────────────────────────┐
+│  ⚠️ URGENT: This answer indicates   │
+│  the child may need immediate care. │
+│  Continue screening to get full     │
+│  guidance for the caregiver.        │
+│                            [OK]     │
+└─────────────────────────────────────┘
+```
+- Banner shown when red answer selected
+- Dismissible - allows continuing screening
+- Red flags collected and summarized in results screen
 
 ### Screen 5: Results
 **Route**: `/results/:screeningId`
@@ -1068,6 +1139,112 @@ npx expo start --tunnel
 - [ ] Dashboard shows aggregate stats
 - [ ] Offline indicator visible
 - [ ] No crashes during demo flow
+
+---
+
+## Demo Seed Data
+
+> Pre-populated sample data for demonstration purposes.
+
+### Sample Villages
+```typescript
+export const VILLAGES = [
+  'Kaloleni',
+  'Rabai',
+  'Mariakani',
+  'Kinango',
+  'Chonyi',
+  'Ganze',
+  'Malindi',
+  'Kilifi',
+  'Mombasa',
+  'Likoni'
+];
+```
+
+### Sample Children (Pre-seeded)
+
+| Name | Age | Village | Last Screening | Risk Result |
+|------|-----|---------|----------------|-------------|
+| Amina Hassan | 8 months | Kaloleni | Dec 28, 2025 | 🟡 Yellow (Development) |
+| John Mwangi | 2 years | Rabai | Dec 20, 2025 | 🟢 Green |
+| Faith Wanjiku | 4 months | Mariakani | Dec 15, 2025 | 🟢 Green |
+| Peter Ochieng | 3 years | Kinango | Dec 10, 2025 | 🟠 Orange (Nutrition) |
+| Grace Akinyi | 14 months | Chonyi | Never | — |
+
+### Seed Data TypeScript
+
+```typescript
+// src/data/seedData.ts
+
+export const sampleChildren: Child[] = [
+  {
+    id: 'child-001',
+    name: 'Amina Hassan',
+    dateOfBirth: '2025-05-02',
+    sex: 'female',
+    village: 'Kaloleni',
+    caregiverPhone: '+254712345678',
+    createdAt: '2025-12-01T08:00:00Z',
+    synced: true
+  },
+  {
+    id: 'child-002',
+    name: 'John Mwangi',
+    dateOfBirth: '2024-01-15',
+    sex: 'male',
+    village: 'Rabai',
+    caregiverPhone: '+254723456789',
+    createdAt: '2025-12-05T09:00:00Z',
+    synced: true
+  },
+  {
+    id: 'child-003',
+    name: 'Faith Wanjiku',
+    dateOfBirth: '2025-09-01',
+    sex: 'female',
+    village: 'Mariakani',
+    createdAt: '2025-12-10T10:00:00Z',
+    synced: true
+  },
+  {
+    id: 'child-004',
+    name: 'Peter Ochieng',
+    dateOfBirth: '2023-01-20',
+    sex: 'male',
+    village: 'Kinango',
+    caregiverPhone: '+254734567890',
+    createdAt: '2025-12-08T11:00:00Z',
+    synced: true
+  },
+  {
+    id: 'child-005',
+    name: 'Grace Akinyi',
+    dateOfBirth: '2024-11-15',
+    sex: 'female',
+    village: 'Chonyi',
+    createdAt: '2025-12-20T14:00:00Z',
+    synced: true
+  }
+];
+
+export const sampleScreenings: Screening[] = [
+  {
+    id: 'screening-001',
+    childId: 'child-001',
+    answers: [/* ... 15 answers for 6-24m age group */],
+    riskResult: {
+      overall: 'yellow',
+      categories: { health: 'green', development: 'yellow', nutrition: 'green' },
+      redFlags: [],
+      areasOfConcern: ['q-6-24m-dev-3']
+    },
+    createdAt: '2025-12-28T10:30:00Z',
+    synced: true
+  },
+  // ... additional sample screenings
+];
+```
 
 ---
 
