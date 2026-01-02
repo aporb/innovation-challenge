@@ -1,0 +1,163 @@
+{
+  "app": {
+    "name": "Toto Gemma",
+    "tagline": "Under-5 Health Screening"
+  },
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "save": "Save",
+    "cancel": "Cancel",
+    "done": "Done",
+    "close": "Close",
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "required": "Required",
+    "optional": "Optional",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "retry": "Retry"
+  },
+  "home": {
+    "title": "Toto Gemma",
+    "subtitle": "Under-5 Health Screening",
+    "newScreening": "New Screening",
+    "history": "History",
+    "dashboard": "Dashboard",
+    "offlineReady": "Offline Ready",
+    "lastSync": "Last sync",
+    "pendingSync": "{{count}} pending",
+    "today": "Today"
+  },
+  "childSearch": {
+    "title": "Select Child",
+    "searchPlaceholder": "Search by name...",
+    "recentChildren": "Recent Children",
+    "addNewChild": "Add New Child",
+    "lastScreened": "Last screened",
+    "never": "Never",
+    "noResults": "No children found",
+    "noChildren": "No children registered yet"
+  },
+  "register": {
+    "title": "Register New Child",
+    "editTitle": "Edit Child",
+    "childName": "Child's Name",
+    "namePlaceholder": "Enter child's name",
+    "ageInputMethod": "How to enter age",
+    "dateOfBirth": "Date of Birth",
+    "ageInMonths": "Age in Months",
+    "selectDate": "Select date",
+    "enterAge": "Enter age",
+    "months": "months",
+    "monthsOld": "months old",
+    "calculatedAge": "Calculated age",
+    "ageGroup": "Age group",
+    "sex": "Sex",
+    "male": "Male",
+    "female": "Female",
+    "village": "Village",
+    "selectVillage": "Select village",
+    "caregiverPhone": "Caregiver Phone",
+    "phonePlaceholder": "+254...",
+    "caregiverName": "Caregiver Name",
+    "startScreening": "Start Screening",
+    "saveChild": "Save Child",
+    "ageGroups": {
+      "0-6m": "0-6 months",
+      "6-24m": "6-24 months",
+      "2-5y": "2-5 years"
+    }
+  },
+  "screening": {
+    "title": "Screening",
+    "exitConfirm": "Exit Screening?",
+    "exitMessage": "Your progress is saved. You can continue later.",
+    "exitButton": "Exit",
+    "continueButton": "Continue",
+    "saveDraft": "Save Draft",
+    "progress": "{{current}} of {{total}}",
+    "question": "Question {{number}}",
+    "selectAnswer": "Select an answer",
+    "redAlert": {
+      "title": "Urgent",
+      "message": "This answer indicates the child may need immediate care. Continue screening to get full guidance for the caregiver."
+    },
+    "categories": {
+      "health": "Health",
+      "development": "Development",
+      "nutrition": "Nutrition"
+    },
+    "complete": "Complete Screening",
+    "allRequired": "Please answer all questions to complete the screening."
+  },
+  "results": {
+    "title": "Screening Complete",
+    "overallRisk": "Overall Risk",
+    "categoryBreakdown": "Category Breakdown",
+    "areasOfConcern": "Areas Needing Attention",
+    "noIssues": "No areas of concern identified",
+    "viewGuidance": "View Caregiver Guidance",
+    "returnHome": "Return Home",
+    "riskLevels": {
+      "green": "Low Risk",
+      "yellow": "Moderate Risk",
+      "orange": "High Risk",
+      "red": "Critical Risk"
+    },
+    "actions": {
+      "green": "Continue routine care",
+      "yellow": "Follow-up in 2 weeks",
+      "orange": "Refer within 24-48 hours",
+      "red": "Immediate referral"
+    }
+  },
+  "guidance": {
+    "title": "Guidance for Caregiver",
+    "subtitle": "Share these tips with the parent",
+    "followUp": "Follow-Up",
+    "nextSteps": "Next Steps",
+    "shareWith": "Share with Caregiver",
+    "sms": "SMS",
+    "whatsapp": "WhatsApp",
+    "complete": "Complete",
+    "copied": "Guidance copied!",
+    "sendSuccess": "Message sent successfully",
+    "sendError": "Could not send message"
+  },
+  "dashboard": {
+    "title": "Supervisor Dashboard",
+    "totalScreenings": "Total Screenings",
+    "today": "Today",
+    "riskDistribution": "Risk Distribution",
+    "pendingReferrals": "Pending Referrals",
+    "viewDetails": "View Details",
+    "pendingSync": "Pending Sync",
+    "screenings": "screenings",
+    "recentActivity": "Recent Activity",
+    "noActivity": "No recent activity"
+  },
+  "history": {
+    "title": "Screening History",
+    "noHistory": "No screenings yet",
+    "filterBy": "Filter by",
+    "all": "All",
+    "viewResults": "View Results"
+  },
+  "validation": {
+    "nameRequired": "Name is required",
+    "ageRequired": "Date of birth or age is required",
+    "sexRequired": "Sex is required",
+    "villageRequired": "Village is required",
+    "invalidPhone": "Invalid phone number"
+  },
+  "offline": {
+    "status": "Offline",
+    "online": "Online",
+    "syncPending": "Sync pending",
+    "lastSynced": "Last synced {{time}}"
+  }
+}

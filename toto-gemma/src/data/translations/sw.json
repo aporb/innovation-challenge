@@ -1,0 +1,163 @@
+{
+  "app": {
+    "name": "Toto Gemma",
+    "tagline": "Uchunguzi wa Afya wa Watoto Chini ya Miaka 5"
+  },
+  "common": {
+    "back": "Rudi",
+    "next": "Endelea",
+    "save": "Hifadhi",
+    "cancel": "Ghairi",
+    "done": "Imekamilika",
+    "close": "Funga",
+    "search": "Tafuta",
+    "loading": "Inapakia...",
+    "error": "Hitilafu",
+    "success": "Imefanikiwa",
+    "required": "Inahitajika",
+    "optional": "Si lazima",
+    "yes": "Ndiyo",
+    "no": "Hapana",
+    "ok": "Sawa",
+    "retry": "Jaribu tena"
+  },
+  "home": {
+    "title": "Toto Gemma",
+    "subtitle": "Uchunguzi wa Afya wa Watoto Chini ya Miaka 5",
+    "newScreening": "Uchunguzi Mpya",
+    "history": "Historia",
+    "dashboard": "Dashibodi",
+    "offlineReady": "Iko Tayari Bila Mtandao",
+    "lastSync": "Usawazishaji wa mwisho",
+    "pendingSync": "{{count}} inasubiri",
+    "today": "Leo"
+  },
+  "childSearch": {
+    "title": "Chagua Mtoto",
+    "searchPlaceholder": "Tafuta kwa jina...",
+    "recentChildren": "Watoto wa Hivi Karibuni",
+    "addNewChild": "Ongeza Mtoto Mpya",
+    "lastScreened": "Uchunguzi wa mwisho",
+    "never": "Kamwe",
+    "noResults": "Hakuna watoto wamepatikana",
+    "noChildren": "Hakuna watoto waliosajiliwa bado"
+  },
+  "register": {
+    "title": "Sajili Mtoto Mpya",
+    "editTitle": "Hariri Mtoto",
+    "childName": "Jina la Mtoto",
+    "namePlaceholder": "Ingiza jina la mtoto",
+    "ageInputMethod": "Jinsi ya kuingiza umri",
+    "dateOfBirth": "Tarehe ya Kuzaliwa",
+    "ageInMonths": "Umri kwa Miezi",
+    "selectDate": "Chagua tarehe",
+    "enterAge": "Ingiza umri",
+    "months": "miezi",
+    "monthsOld": "miezi",
+    "calculatedAge": "Umri uliohesabiwa",
+    "ageGroup": "Kundi la umri",
+    "sex": "Jinsia",
+    "male": "Kiume",
+    "female": "Kike",
+    "village": "Kijiji",
+    "selectVillage": "Chagua kijiji",
+    "caregiverPhone": "Simu ya Mlezi",
+    "phonePlaceholder": "+254...",
+    "caregiverName": "Jina la Mlezi",
+    "startScreening": "Anza Uchunguzi",
+    "saveChild": "Hifadhi Mtoto",
+    "ageGroups": {
+      "0-6m": "Miezi 0-6",
+      "6-24m": "Miezi 6-24",
+      "2-5y": "Miaka 2-5"
+    }
+  },
+  "screening": {
+    "title": "Uchunguzi",
+    "exitConfirm": "Ondoka Uchunguzi?",
+    "exitMessage": "Maendeleo yako yamehifadhiwa. Unaweza kuendelea baadaye.",
+    "exitButton": "Ondoka",
+    "continueButton": "Endelea",
+    "saveDraft": "Hifadhi Rasimu",
+    "progress": "{{current}} kati ya {{total}}",
+    "question": "Swali {{number}}",
+    "selectAnswer": "Chagua jibu",
+    "redAlert": {
+      "title": "Dharura",
+      "message": "Jibu hili linaonyesha mtoto anaweza kuhitaji huduma ya haraka. Endelea na uchunguzi kupata mwongozo kamili kwa mlezi."
+    },
+    "categories": {
+      "health": "Afya",
+      "development": "Maendeleo",
+      "nutrition": "Lishe"
+    },
+    "complete": "Kamilisha Uchunguzi",
+    "allRequired": "Tafadhali jibu maswali yote kukamilisha uchunguzi."
+  },
+  "results": {
+    "title": "Uchunguzi Umekamilika",
+    "overallRisk": "Hatari ya Jumla",
+    "categoryBreakdown": "Mgawanyo wa Makundi",
+    "areasOfConcern": "Maeneo Yanayohitaji Umakini",
+    "noIssues": "Hakuna maeneo ya wasiwasi yaliyotambulika",
+    "viewGuidance": "Angalia Mwongozo wa Mlezi",
+    "returnHome": "Rudi Nyumbani",
+    "riskLevels": {
+      "green": "Hatari ya Chini",
+      "yellow": "Hatari ya Wastani",
+      "orange": "Hatari ya Juu",
+      "red": "Hatari Kubwa"
+    },
+    "actions": {
+      "green": "Endelea na huduma ya kawaida",
+      "yellow": "Fuatilia baada ya wiki 2",
+      "orange": "Peleka ndani ya saa 24-48",
+      "red": "Peleka mara moja"
+    }
+  },
+  "guidance": {
+    "title": "Mwongozo kwa Mlezi",
+    "subtitle": "Shiriki vidokezo hivi na mzazi",
+    "followUp": "Ufuatiliaji",
+    "nextSteps": "Hatua Zifuatazo",
+    "shareWith": "Shiriki na Mlezi",
+    "sms": "SMS",
+    "whatsapp": "WhatsApp",
+    "complete": "Kamilisha",
+    "copied": "Mwongozo umenakiliwa!",
+    "sendSuccess": "Ujumbe umetumwa kwa mafanikio",
+    "sendError": "Haikuweza kutuma ujumbe"
+  },
+  "dashboard": {
+    "title": "Dashibodi ya Msimamizi",
+    "totalScreenings": "Uchunguzi Wote",
+    "today": "Leo",
+    "riskDistribution": "Usambazaji wa Hatari",
+    "pendingReferrals": "Rufaa Zinazosubiri",
+    "viewDetails": "Angalia Maelezo",
+    "pendingSync": "Usawazishaji Unasubiri",
+    "screenings": "uchunguzi",
+    "recentActivity": "Shughuli za Hivi Karibuni",
+    "noActivity": "Hakuna shughuli za hivi karibuni"
+  },
+  "history": {
+    "title": "Historia ya Uchunguzi",
+    "noHistory": "Hakuna uchunguzi bado",
+    "filterBy": "Chuja kwa",
+    "all": "Zote",
+    "viewResults": "Angalia Matokeo"
+  },
+  "validation": {
+    "nameRequired": "Jina linahitajika",
+    "ageRequired": "Tarehe ya kuzaliwa au umri unahitajika",
+    "sexRequired": "Jinsia inahitajika",
+    "villageRequired": "Kijiji kinahitajika",
+    "invalidPhone": "Nambari ya simu si sahihi"
+  },
+  "offline": {
+    "status": "Nje ya Mtandao",
+    "online": "Mtandaoni",
+    "syncPending": "Usawazishaji unasubiri",
+    "lastSynced": "Ilisawazishwa mwisho {{time}}"
+  }
+}
