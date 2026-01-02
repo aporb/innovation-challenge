@@ -2,7 +2,7 @@
 // Main screening questionnaire screen
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, StyleSheet, ScrollView, Alert, BackHandler } from 'react-native';
+import { View, StyleSheet, ScrollView, Alert, BackHandler, Pressable } from 'react-native';
 import {
   Text,
   Button,
@@ -129,8 +129,8 @@ export default function ScreeningScreen() {
         return true;
       };
 
-      BackHandler.addEventListener('hardwareBackPress', onBackPress);
-      return () => BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+      const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+      return () => subscription.remove();
     }, [])
   );
 
@@ -374,27 +374,21 @@ function AnswerOption({ color, text, selected, onSelect }: AnswerOptionProps) {
   const emoji = color === 'green' ? '🟢' : color === 'yellow' ? '🟡' : color === 'orange' ? '🟠' : '🔴';
 
   return (
-    <Surface
-      style={[
+    <Pressable
+      onPress={onSelect}
+      style={({ pressed }) => [
         styles.answerOption,
         selected && { borderColor: riskColor, borderWidth: 3 },
+        pressed && { opacity: 0.7 },
       ]}
-      elevation={selected ? 3 : 1}
     >
-      <Button
-        mode="text"
-        onPress={onSelect}
-        style={styles.answerButton}
-        contentStyle={styles.answerButtonContent}
-      >
-        <View style={styles.answerContent}>
-          <Text style={styles.answerEmoji}>{emoji}</Text>
-          <Text variant="bodyMedium" style={styles.answerText}>
-            {text}
-          </Text>
-        </View>
-      </Button>
-    </Surface>
+      <View style={styles.answerContent}>
+        <Text style={styles.answerEmoji}>{emoji}</Text>
+        <Text variant="bodyMedium" style={styles.answerText}>
+          {text}
+        </Text>
+      </View>
+    </Pressable>
   );
 }
 
@@ -475,20 +469,13 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 1,
     borderColor: COLORS.border,
-  },
-  answerButton: {
-    width: '100%',
-  },
-  answerButtonContent: {
-    paddingVertical: SPACING.sm,
+    paddingVertical: SPACING.md,
     paddingHorizontal: SPACING.md,
-    justifyContent: 'flex-start',
-    minHeight: 56,
+    minHeight: 60,
   },
   answerContent: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    flex: 1,
   },
   answerEmoji: {
     fontSize: 20,

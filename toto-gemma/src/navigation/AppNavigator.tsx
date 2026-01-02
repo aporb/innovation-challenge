@@ -2,7 +2,6 @@
 // Main navigation structure using React Navigation
 
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
 
@@ -25,8 +24,7 @@ export default function AppNavigator() {
   const { t } = useTranslation();
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
+    <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
           headerStyle: {
@@ -100,6 +98,5 @@ export default function AppNavigator() {
           }}
         />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }

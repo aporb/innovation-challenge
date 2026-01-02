@@ -145,7 +145,15 @@
     "noHistory": "Hakuna uchunguzi bado",
     "filterBy": "Chuja kwa",
     "all": "Zote",
-    "viewResults": "Angalia Matokeo"
+    "viewResults": "Angalia Matokeo",
+    "searchPlaceholder": "Tafuta kwa jina la mtoto...",
+    "filterAll": "Zote",
+    "showing": "Inaonyesha uchunguzi {{count}}",
+    "noResults": "Hakuna uchunguzi unaolingana na vichujio vyako",
+    "noScreenings": "Hakuna uchunguzi uliorekodwa bado",
+    "unknownChild": "Mtoto Asiyejulikana",
+    "draft": "Rasimu",
+    "pendingSync": "Inasubiri kusawazishwa"
   },
   "validation": {
     "nameRequired": "Jina linahitajika",

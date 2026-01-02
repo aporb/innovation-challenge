@@ -145,7 +145,15 @@
     "noHistory": "No screenings yet",
     "filterBy": "Filter by",
     "all": "All",
-    "viewResults": "View Results"
+    "viewResults": "View Results",
+    "searchPlaceholder": "Search by child name...",
+    "filterAll": "All",
+    "showing": "Showing {{count}} screenings",
+    "noResults": "No screenings match your filters",
+    "noScreenings": "No screenings recorded yet",
+    "unknownChild": "Unknown Child",
+    "draft": "Draft",
+    "pendingSync": "Pending sync"
   },
   "validation": {
     "nameRequired": "Name is required",

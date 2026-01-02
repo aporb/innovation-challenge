@@ -221,6 +221,14 @@ export async function getIncompleteScreening(childId: string): Promise<Screening
   return row ? mapRowToScreening(row) : null;
 }
 
+export async function getAllScreenings(): Promise<Screening[]> {
+  const database = getDatabase();
+  const rows = await database.getAllAsync<any>(
+    'SELECT * FROM screenings ORDER BY created_at DESC'
+  );
+  return rows.map(mapRowToScreening);
+}
+
 export async function getRecentScreenings(limit: number = 20): Promise<(Screening & { childName: string })[]> {
   const database = getDatabase();
   const rows = await database.getAllAsync<any>(
